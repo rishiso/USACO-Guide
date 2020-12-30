@@ -1,2 +1,2 @@
 # USACO-Guide
-Solutions to problems in silver portion of USACO Guide
+These are my solutions to problems in the silver portion of the newly-created USACO Guide.
