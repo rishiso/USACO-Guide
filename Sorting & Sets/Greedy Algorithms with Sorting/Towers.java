@@ -1,9 +1,24 @@
-//WORKS ON 8/11 TEST CASES ONLY
-
 import java.io.*;
 import java.util.*;
 
 public class Towers {
+	
+	static void add(int x){
+	    if(multiset.containsKey(x)){
+	        multiset.put(x, multiset.get(x) + 1);
+	    } else {
+	        multiset.put(x, 1);
+	    }
+	}
+
+	static void remove(int x){
+	    multiset.put(x, multiset.get(x) - 1);
+	    if(multiset.get(x) == 0){
+	        multiset.remove(x);
+	    }
+	}
+	
+	static TreeMap<Integer, Integer> multiset = new TreeMap<Integer, Integer>();
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,29 +26,21 @@ public class Towers {
 		int n = Integer.parseInt(br.readLine());
 				
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		SortedSet<Integer> towers = new TreeSet<Integer>();
 		
 		int solution = 0;
 		
 		for(int i = 0; i < n; i++) {
 			int x = Integer.parseInt(st.nextToken());
 			
-			if (towers.isEmpty() || towers.last() <= x) {
+			if (multiset.isEmpty() || multiset.lastKey() <= x) {
 				solution++;
-				towers.add(x);
+				add(x);
 			} else {
-				for(int j: towers) {
-					if (j > x) {
-						towers.remove(j);
-						towers.add(x);
-						break;
-					}
-				}
-			}
+				remove(multiset.higherKey(x));
+				add(x);
+			}			
 		}
 		
-		System.out.println(solution);
-		
+		System.out.println(solution);	
 	}
-
 }
