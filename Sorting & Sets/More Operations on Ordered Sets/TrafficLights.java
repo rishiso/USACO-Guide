@@ -6,9 +6,8 @@ import java.util.*;
 public class TrafficLights {
 	
 	public static void main(String[] args) throws IOException {
-		long start = System.currentTimeMillis();
 		
-		BufferedReader br = new BufferedReader(new FileReader("test_input.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
@@ -38,8 +37,6 @@ public class TrafficLights {
 			System.out.print(gaps.peek());
 			if (i < n - 1) System.out.print(" ");
 		}
-		
-		System.out.println(System.currentTimeMillis() - start);
 	}
 
 }
