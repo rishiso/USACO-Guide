@@ -21,7 +21,7 @@ public class moocastG {
 		for(int i = 0; i < cows.length; i++) {
 			int a = cows[current].x - cows[i].x;
 			int b = cows[current].y - cows[i].y;
-			if (!used[i] && a *a + b * b <= maxD) {
+			if (!used[i] && a * a + b * b <= maxD) {
 				DFS(maxD, i);
 			}
 		}
